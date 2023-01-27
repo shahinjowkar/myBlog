@@ -49,57 +49,48 @@ export default function Home({ posts }: Props) {
         <Container maxWidth={"lg"}>
           <Box
             sx={{
+              mt: 8,
               display: "grid",
               gridTemplateColumns: "repeat(auto-fit, minmax(350px,1fr))",
-              gap: 2,
+              gap: 3,
             }}
           >
             {posts.map((post) => (
-              <Card
-                key={post._id}
-                sx={{
-                  bgcolor: `${layer2}`,
-                }}
-              >
-                <CardActionArea
+              <Link key={post._id} href={`/post/${post.slug.current}`}>
+                <Card
                   sx={{
-                    "&:hover": {
-                      cursor: "pointer",
-                      "& $image": {
-                        transform: "scale(1.3)",
-                        // transition: "ease-in-out",
-                      },
-                    },
+                    bgcolor: `${layer2}`,
+                    height: "400px",
                   }}
                 >
-                  <Box sx={{ m: 0, p: 0, overflow: "hidden" }}>
-                    <CardMedia
-                      component="img"
-                      height="200"
-                      image={`${urlFor(post.mainImage).url()!}`}
-                      alt="green iguana"
-                      sx={[{ overflow: "hidden", objectFit: "cover" }]}
-                    />
-                  </Box>
-                  <CardContent>
-                    <ThemeProvider theme={theme}>
-                      <Typography
-                        gutterBottom
-                        variant="h5"
-                        component="div"
-                        color="white"
-                      >
-                        Lizard
-                      </Typography>
-                      <Typography variant="body2" color="white">
-                        Lizards are a widespread group of squamate reptiles,
-                        with over 6,000 species, ranging across all continents
-                        except Antarctica
-                      </Typography>
-                    </ThemeProvider>
-                  </CardContent>
-                </CardActionArea>
-              </Card>
+                  <CardActionArea>
+                    <Box sx={{ m: 0, p: 0, overflow: "hidden" }}>
+                      <CardMedia
+                        component="img"
+                        height="200"
+                        image={`${urlFor(post.mainImage).url()!}`}
+                        alt="green iguana"
+                        sx={[{ overflow: "hidden", objectFit: "cover" }]}
+                      />
+                    </Box>
+                    <CardContent>
+                      <ThemeProvider theme={theme}>
+                        <Typography
+                          gutterBottom
+                          variant="h5"
+                          component="div"
+                          color="white"
+                        >
+                          {post.title}
+                        </Typography>
+                        <Typography variant="body2" color="white">
+                          {post.description}
+                        </Typography>
+                      </ThemeProvider>
+                    </CardContent>
+                  </CardActionArea>
+                </Card>
+              </Link>
             ))}
           </Box>
         </Container>
