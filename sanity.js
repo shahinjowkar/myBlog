@@ -1,9 +1,12 @@
 import{
-    createCurrentUserHook,
     creatClient,
     createClient,
+    createCurrentUserHook,
 } from "next-sanity";
+
 import createImageUrlBuilder from '@sanity/image-url';
+
+//getting this info from sanity.json file an they are saved in .env.local
 export const config={
     dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || "production",
     projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,

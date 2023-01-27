@@ -1,20 +1,38 @@
+import { StringLiteral } from "typescript";
+
 export interface Post {
-  //where to get these
-  _id: string
-  _createdAt: string
-  title: string
+  _id: string;
+  _createdAt: string;
+  title: string;
   author: {
-    name: string
-    image: string
-  }
-  description: string
+    name: string;
+    image: string;
+  };
+  comments: Comment[];
+  description: string;
   mainImage: {
     asset: {
-      utsl: string
-    }
-  }
+      utsl: string;
+    };
+  };
   slug: {
-    current: string
-  }
-  body: [object]
+    current: string;
+  };
+  body: [object];
+}
+
+export interface Comment {
+  approved: boolean;
+  comment: string;
+  email: string;
+  name: string;
+  post: {
+    _ref: string;
+    _type: string;
+  };
+  _createdAt: string;
+  _id: string;
+  _rev: string;
+  _type: string;
+  _updatedAt: string;
 }
