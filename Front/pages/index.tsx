@@ -23,6 +23,7 @@ import Image from "next/image";
 import { Key } from "@mui/icons-material";
 import Link from "next/link";
 import { Post } from "../typing";
+import React from "react";
 import { async } from "rxjs";
 import { blue } from "@mui/material/colors";
 import card from "../components/Card";
