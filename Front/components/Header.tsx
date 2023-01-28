@@ -35,9 +35,12 @@ function Header() {
         <Box sx={{ display: "flex", alignItems: "center", gap: 4 }}>
           <GitHubIcon href="#" sx={{ color: "white" }}></GitHubIcon>
           <LinkedInIcon href="#" sx={{ color: "white" }}></LinkedInIcon>
-          <Button href="#" sx={{ color: "black", backgroundColor: "white" }}>
+          <Button
+            href="/GenPost"
+            sx={{ color: "black", backgroundColor: "white" }}
+          >
             {" "}
-            my portfolio
+            Auto Generate
           </Button>
         </Box>
       </Box>
