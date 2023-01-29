@@ -9,7 +9,8 @@ const app = express()
 
 // middlewares after calling express()
 app.use(cors())
-// app.use(express.json())
+//this pars your req to json by default
+app.use(express.json())
 
 app.listen(8080)
 // cohere.init("LHnbq6TlUZ7gpBZf2YPHiW3QvdkZ4UM3gZleKUkI")
@@ -36,8 +37,8 @@ app.post("/", async (req, res) => {
   // const result = await generate()
   // res.body={alo: "damn"}
   // res="hi"
-  console.log(req.body)
-  res.json({he :"hoo"})
+  // console.log(req.body)
+  res.json(req.body)
     
   })
   
@@ -46,7 +47,7 @@ app.post("/", async (req, res) => {
     // const result = await generate()
     // res.body={alo: "damn"}
     // res="hi"
-    
+    console.log(req.body)
     res.json({connected : 'baby'})
       
     })

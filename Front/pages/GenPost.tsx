@@ -15,6 +15,10 @@ export default function GenPost() {
           (values) =>
             fetch("http://localhost:8080/", {
               method: "Post",
+              //header is important. if you dont set this and pass json the req would be undefined
+              headers: {
+                "Content-Type": "application/json",
+              },
               body: JSON.stringify({
                 m1: `${values.m1}`,
                 m2: `${values.m2}`,
