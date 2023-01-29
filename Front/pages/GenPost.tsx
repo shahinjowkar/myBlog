@@ -3,6 +3,7 @@ import { Form, Formik } from "formik";
 
 import { Box } from "@mui/system";
 import Header from "../components/Header";
+import { METHODS } from "http";
 import React from "react";
 
 export default function GenPost() {
@@ -10,7 +11,25 @@ export default function GenPost() {
     <>
       <Formik
         initialValues={{ m1: "", m2: "", m3: "" }}
-        onSubmit={(values) => console.log(values)}
+        onSubmit={
+          (values) =>
+            fetch("http://localhost:8080/", {
+              method: "Post",
+              body: JSON.stringify({
+                m1: `${values.m1}`,
+                m2: `${values.m2}`,
+                m3: `${values.m3}`,
+              }),
+            })
+              .then((res) => res.json())
+              .then((ok) => console.log(ok))
+
+          //  fetch("/", { method: "POST", body: "blob"})
+
+          // fetch("/", { method: "POST", body: {what : "hi"} })
+          //   .then((res) => console.log(res.json()))
+          //   .then((fuck) => console.log(fuck))
+        }
       >
         {(form) => (
           <Form>
