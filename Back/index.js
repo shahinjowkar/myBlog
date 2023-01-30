@@ -103,25 +103,3 @@ app.post("/", async (req, res) => {
 
 
 
-// app.post("sd", async (req, res) => {
-  
-//   // const result = await generate()
-//   // res.body={alo: "damn"}
-//   // res="hi"
-//   // console.log(req.body)
-//   res.json(req.body)
-    
-//   })
-  
-  // app.get("/", async (req, res) => {
-  
-  //   // const result = await generate()
-  //   // res.body={alo: "damn"}
-  //   // res="hi"
-  //   console.log(req.body)
-  //   res.json({connected : 'baby'})
-      
-  //   })
-
-
-
