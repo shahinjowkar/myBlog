@@ -17,6 +17,7 @@ import Image from "next/image";
 import PortableText from "react-portable-text";
 import { Post } from "../../typing";
 import React from "react";
+import imageUrl from "../../public/mainHero.jpg";
 import { relative } from "path";
 import { useFormik } from "formik";
 
@@ -42,12 +43,21 @@ export default function post({ post }: props) {
     <>
       <Header />
       <Box sx={{ position: "relative", height: { xs: 150, md: 250 } }}>
-        <Image
-          src={urlFor(post.mainImage).url()!}
-          layout="fill"
-          objectFit="cover"
-          alt=""
-        />
+        {post.mainImage ? (
+          <Image
+            src={urlFor(post.mainImage).url()!}
+            layout="fill"
+            objectFit="cover"
+            alt=""
+          />
+        ) : (
+          <Image
+            src={`${imageUrl.src}`}
+            layout="fill"
+            objectFit="cover"
+            alt=""
+          />
+        )}
       </Box>
       <Container maxWidth={"xl"}>
         <Box sx={{ bgcolor: layer2, mx: 3, mt: 3, px: 3, borderRadius: 5 }}>
@@ -58,9 +68,37 @@ export default function post({ post }: props) {
             <Typography color={"white"} variant="h5">
               {post.description}
             </Typography>
+
             <Typography color={"white"} variant="body2">
-              Blog post By <span>{post.author.name}</span> published at
+              {post?.body && (
+                <PortableText
+                  dataset={process.env.NEXT_PUBLIC_SANITY_DATASET}
+                  projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}
+                  content={post.body}
+                  serializers={{
+                    h1: (props: any) => (
+                      <h1 className="text-2xl font-bold my-5" {...props} />
+                    ),
+                    h2: (props: any) => (
+                      <h1 className="text-xl font-bold my-5" {...props} />
+                    ),
+                    li: ({ children }: any) => (
+                      <li className="ml-4 list-disc">{children}</li>
+                    ),
+                    link: ({ href, children }: any) => (
+                      <a href={href} className="text-blue-500 hover:underlune">
+                        {children}
+                      </a>
+                    ),
+                  }}
+                />
+              )}
             </Typography>
+            {post?.plainBody && (
+              <Typography color={"white"} variant="body2">
+                {post.plainBody}
+              </Typography>
+            )}
           </ThemeProvider>
         </Box>
       </Container>
@@ -90,27 +128,27 @@ export default function post({ post }: props) {
     //       </p>
     //     </div>
     //     <div>
-    //       <PortableText
-    //         dataset={process.env.NEXT_PUBLIC_SANITY_DATASET}
-    //         projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}
-    //         content={post.body}
-    //         serializers={{
-    //           h1: (props: any) => (
-    //             <h1 className="text-2xl font-bold my-5" {...props} />
-    //           ),
-    //           h2: (props: any) => (
-    //             <h1 className="text-xl font-bold my-5" {...props} />
-    //           ),
-    //           li: ({ children }: any) => (
-    //             <li className="ml-4 list-disc">{children}</li>
-    //           ),
-    //           link: ({ href, children }: any) => (
-    //             <a href={href} className="text-blue-500 hover:underlune">
-    //               {children}
-    //             </a>
-    //           ),
-    //         }}
-    //       />
+    // <PortableText
+    //   dataset={process.env.NEXT_PUBLIC_SANITY_DATASET}
+    //   projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}
+    //   content={post.body}
+    //   serializers={{
+    //     h1: (props: any) => (
+    //       <h1 className="text-2xl font-bold my-5" {...props} />
+    //     ),
+    //     h2: (props: any) => (
+    //       <h1 className="text-xl font-bold my-5" {...props} />
+    //     ),
+    //     li: ({ children }: any) => (
+    //       <li className="ml-4 list-disc">{children}</li>
+    //     ),
+    //     link: ({ href, children }: any) => (
+    //       <a href={href} className="text-blue-500 hover:underlune">
+    //         {children}
+    //       </a>
+    //     ),
+    //   }}
+    // />
     //     </div>
     //   </article>
     //   <hr className="max-w-lg my-5 mx-auto border border-yellow-500" />
@@ -153,7 +191,7 @@ export const getStaticPaths = async () => {
 };
 // what is this param : context
 export const getStaticProps: GetStaticProps = async ({ params }: Context) => {
-  const query = ` *[_type == "post" && slug.current == "my-first-post"][0]{
+  const query = ` *[_type == "post" && slug.current == $slug][0]{
     _id,
     _createdAt,
     title,
@@ -165,7 +203,8 @@ export const getStaticProps: GetStaticProps = async ({ params }: Context) => {
   description,
   mainImage,
   slug,
-  body
+  body,
+  plainBody
   }`;
   const post = await sanityClient.fetch(query, { slug: params?.slug });
   return {

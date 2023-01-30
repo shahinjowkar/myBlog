@@ -19,6 +19,7 @@ export interface Post {
     current: string;
   };
   body: [object];
+  plainBody: string;
 }
 
 export interface Comment {

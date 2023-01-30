@@ -27,6 +27,7 @@ import React from "react";
 import { async } from "rxjs";
 import { blue } from "@mui/material/colors";
 import card from "../components/Card";
+import imageUrl from "../public/mainHero.jpg";
 // import img from "/../public/25336.jpg";
 import post from "./post/[slug]";
 import { relative } from "path";
@@ -66,13 +67,23 @@ export default function Home({ posts }: Props) {
                 >
                   <CardActionArea>
                     <Box sx={{ m: 0, p: 0, overflow: "hidden" }}>
-                      <CardMedia
-                        component="img"
-                        height="200"
-                        image={`${urlFor(post.mainImage).url()!}`}
-                        alt="green iguana"
-                        sx={[{ overflow: "hidden", objectFit: "cover" }]}
-                      />
+                      {post.mainImage ? (
+                        <CardMedia
+                          component="img"
+                          height="200"
+                          image={`${urlFor(post.mainImage).url()!}`}
+                          alt="green iguana"
+                          sx={[{ overflow: "hidden", objectFit: "cover" }]}
+                        />
+                      ) : (
+                        <CardMedia
+                          component="img"
+                          height="200"
+                          image={`${imageUrl.src}`}
+                          alt="green iguana"
+                          sx={[{ overflow: "hidden", objectFit: "cover" }]}
+                        />
+                      )}
                     </Box>
                     <CardContent>
                       <ThemeProvider theme={theme}>
