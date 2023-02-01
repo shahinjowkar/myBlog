@@ -11,28 +11,21 @@ export default function GenPost() {
     <>
       <Formik
         initialValues={{ m1: "", m2: "", m3: "" }}
-        onSubmit={
-          (values) =>
-            fetch("http://localhost:8080/", {
-              method: "Post",
-              //header is important. if you dont set this and pass json the req would be undefined
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-                m1: `${values.m1}`,
-                m2: `${values.m2}`,
-                m3: `${values.m3}`,
-              }),
-            })
-              .then((res) => res.json())
-              .then((ok) => console.log(ok))
-
-          //  fetch("/", { method: "POST", body: "blob"})
-
-          // fetch("/", { method: "POST", body: {what : "hi"} })
-          //   .then((res) => console.log(res.json()))
-          //   .then((fuck) => console.log(fuck))
+        onSubmit={(values) =>
+          fetch("http://localhost:8080/", {
+            method: "Post",
+            //header is important. if you dont set this and pass json the req would be undefined
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              m1: `${values.m1}`,
+              m2: `${values.m2}`,
+              m3: `${values.m3}`,
+            }),
+          })
+            .then((res) => res.json())
+            .then((ok) => console.log(ok))
         }
       >
         {(form) => (

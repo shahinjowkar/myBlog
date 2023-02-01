@@ -9,7 +9,7 @@ const config = {
   projectId: "0ure9ap4",
   apiVersion: "2021-03-25",
   useCdn: process.env.NODE_ENV == 'production',
-  token:"skCL27f6mk9VUGsNggsXQSMWBFje4YtR0ZKCQGUqoWe8KGQ4AnXXa8rEnllsCvNkwmUIXFXVYed9evBQ3Mx0TmwyM5dlQeXRR3JWRLSjOAidsToizRYTbL5IE1wIcQ9XhOiacUy1ityDF4kBxhH5tYYVivbFHes49tKfXilWWATSsjOMPvOi",
+  token:process.env.TOKEN,
 }
 
 const client = sanityClient(config)
@@ -50,7 +50,7 @@ Passage: ArtificialIvan, a seven-year-old, London-based payment and expense mana
 
 TLDR: ArtificialIvan has raised $190 million in Series C funding.\n
 --\n
-Passage:${prompt}
+Passage:${sum}
 TLDR:`
 
   const response = await cohere.generate({
@@ -88,14 +88,13 @@ async function postToSanity(title,body,description){
 
 
 app.post("/", async (req, res) => {
-  console.log("I'm alive")
+  // console.log("I'm alive")
   const response = await generate(req.body.m1)
-  console.log("I'm alive")
-  const response2 = await generate(response)
-  console.log("I'm alive")
-  await postToSanity(req.body.m1, response2,response2 )
-  console.log("I'm alive")
-
+  // console.log("I'm alive")
+  const response2 = await summary(response)
+  // console.log("I'm alive")
+  await postToSanity(req.body.m1, response,response2 )
+  // console.log("I'm alive")
   res.json(req.body.m1)
     
   })
