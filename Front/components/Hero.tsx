@@ -20,7 +20,7 @@ import Link from "next/link";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import React from "react";
 import { Translate } from "@mui/icons-material";
-import imageUrl from "../public/mainHero.jpg";
+import imageUrl from "../public/dental-2.jpg";
 
 const layer1 = " #121212";
 const layer2 = "#1e1e1e";
@@ -42,11 +42,12 @@ export default function Hero() {
           xl: 550,
         },
         pl: "6%",
+        // backgroundPositionY: "100px",
         backgroundImage: `url(${imageUrl.src})`,
         backgroundSize: "cover",
         justifyContent: "center",
         alignItems: "flex-start",
-        backgroundPosition: "bottom right",
+        backgroundPosition: "center",
         filter: "color(0)",
       }}
     >
@@ -59,7 +60,7 @@ export default function Hero() {
           padding={1.5}
           sx={{ whiteSpace: "nowrap" }}
         >
-          Welcome to my Blog
+          Denthusiasts
         </Typography>
         <Typography
           component={"h6"}
@@ -69,7 +70,7 @@ export default function Hero() {
           padding={1.5}
           sx={{ fontSize: "1em", whiteSpace: "nowrap" }}
         >
-          The Journey,not the Destination
+          Scientific Research Blog For Dental Enthusiasts
         </Typography>
       </ThemeProvider>
     </Box>

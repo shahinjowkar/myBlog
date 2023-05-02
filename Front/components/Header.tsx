@@ -7,9 +7,12 @@ import { Box, Button, Hidden, Icon, Typography } from "@mui/material";
 
 import { Container } from "@mui/system";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import { Height } from "@mui/icons-material";
+import Image from "next/image";
 import Link from "next/link";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import React from "react";
+import logo from "../public/dentalLogo.png";
 
 const layer1 = " #121212";
 const layer2 = "#1e1e1e";
@@ -17,7 +20,7 @@ const layer3 = "#272727";
 function Header() {
   //TODO FOLLOW DOCS TO ADD WHITE ON TOP FOR SHADOWS
   return (
-    <Container maxWidth={false} sx={{ bgcolor: layer3, m: 0, p: 0 }}>
+    <Container maxWidth={false} sx={{ bgcolor: "#f0f4f4", m: 0, p: 0 }}>
       <Box
         height={"80px"}
         sx={{
@@ -27,12 +30,11 @@ function Header() {
           px: "20px",
           color: "white",
           display: "flex",
-          justifyContent: "space-between",
+          justifyContent: "center",
           alignItems: "center",
         }}
       >
-        MyBlog
-        <Box sx={{ display: "flex", alignItems: "center", gap: 4 }}>
+        {/* <Box sx={{ display: "flex", alignItems: "center", gap: 4 }}>
           <GitHubIcon href="#" sx={{ color: "white" }}></GitHubIcon>
           <LinkedInIcon href="#" sx={{ color: "white" }}></LinkedInIcon>
           <Button
@@ -42,8 +44,27 @@ function Header() {
             {" "}
             Auto Generate
           </Button>
-        </Box>
+        </Box> */}
+        {/* <Box sx={{ height: "75px", width: "75px" }}> */}
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            gap: 2,
+            height: "75px",
+            width: "75px",
+
+            pl: "6%",
+            // backgroundPositionY: "100px",
+            backgroundImage: `url(${logo.src})`,
+            backgroundSize: "cover",
+            justifyContent: "center",
+            alignItems: "flex-start",
+            backgroundPosition: "center",
+          }}
+        />
       </Box>
+      {/* </Box> */}
     </Container>
   );
 }
