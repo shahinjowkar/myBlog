@@ -12,6 +12,7 @@ import {
   Typography,
   createTheme,
   responsiveFontSizes,
+  useMediaQuery,
 } from "@mui/material";
 
 import { Container } from "@mui/system";
@@ -20,7 +21,7 @@ import Link from "next/link";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import React from "react";
 import { Translate } from "@mui/icons-material";
-import imageUrl from "../public/dental-2.jpg";
+import imageUrl from "../public/mainHero.jpg";
 
 const layer1 = " #121212";
 const layer2 = "#1e1e1e";
@@ -29,6 +30,7 @@ let theme = createTheme();
 theme = responsiveFontSizes(theme);
 
 export default function Hero() {
+  const matches = useMediaQuery(theme.breakpoints.up("md"));
   //link component is a next component which prefetch klinked lists and make te website faster
   return (
     <Box
@@ -36,6 +38,7 @@ export default function Hero() {
         display: "flex",
         flexDirection: "column",
         gap: 2,
+        flexWrap: "wrap",
         height: {
           xs: 300,
           md: 450,
@@ -56,21 +59,24 @@ export default function Hero() {
           component={"h2"}
           variant="h2"
           color={"white"}
-          bgcolor={"rgba(0, 0, 0, 0.8)"}
+          bgcolor={"rgba(0, 0, 0, 0.6)"}
           padding={1.5}
           sx={{ whiteSpace: "nowrap" }}
         >
           Denthusiasts
         </Typography>
         <Typography
+          textOverflow={"ellipsis"}
           component={"h6"}
           variant="h6"
           color={"white"}
-          bgcolor={"rgba(0, 0, 0, 0.8)"}
+          bgcolor={"rgba(0, 0, 0, 0.6)"}
           padding={1.5}
           sx={{ fontSize: "1em", whiteSpace: "nowrap" }}
         >
-          Scientific Research Blog For Dental Enthusiasts
+          {matches
+            ? `Scientific Research Blog For Dental Enthusiasts`
+            : `Scientific Research Blog`}
         </Typography>
       </ThemeProvider>
     </Box>

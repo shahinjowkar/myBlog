@@ -3,16 +3,26 @@ import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 
-import { Box, Button, Hidden, Icon, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Hidden,
+  Icon,
+  IconButton,
+  Typography,
+} from "@mui/material";
 
 import { Container } from "@mui/system";
+import EmailIcon from "@mui/icons-material/Email";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import { Height } from "@mui/icons-material";
 import Image from "next/image";
+import InstagramIcon from "@mui/icons-material/Instagram";
 import Link from "next/link";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import React from "react";
 import logo from "../public/dentalLogo.png";
+import { wrap } from "module";
 
 const layer1 = " #121212";
 const layer2 = "#1e1e1e";
@@ -30,6 +40,7 @@ function Header() {
           px: "20px",
           color: "white",
           display: "flex",
+          gap: 2,
           justifyContent: "center",
           alignItems: "center",
         }}
@@ -46,23 +57,56 @@ function Header() {
           </Button>
         </Box> */}
         {/* <Box sx={{ height: "75px", width: "75px" }}> */}
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            gap: 2,
-            height: "75px",
-            width: "75px",
+        <Link href={"/"}>
+          <Box
+            sx={{
+              "&hover": { cursor: "pointer" },
+              display: "flex",
+              flexDirection: "column",
+              gap: 2,
+              height: "75px",
+              width: "75px",
 
-            pl: "6%",
-            // backgroundPositionY: "100px",
-            backgroundImage: `url(${logo.src})`,
-            backgroundSize: "cover",
-            justifyContent: "center",
-            alignItems: "flex-start",
-            backgroundPosition: "center",
+              pl: "6%",
+
+              // backgroundPositionY: "100px",
+              backgroundImage: `url(${logo.src})`,
+              backgroundSize: "cover",
+              justifyContent: "center",
+              alignItems: "flex-start",
+              backgroundPosition: "center",
+            }}
+          />
+        </Link>
+        <IconButton
+          sx={{ ml: "auto" }}
+          href="mailto:Soorena.barmaky@mail.utoronto.ca"
+        >
+          <EmailIcon color="action" fontSize="large" target="_blank" />
+        </IconButton>
+        <IconButton
+          href="https://instagram.com/pre_denthusiasts?igshid=YmMyMTA2M2Y="
+          target="_blank"
+        >
+          <InstagramIcon color="action" fontSize="large" />
+        </IconButton>
+        <Button
+          variant="contained"
+          sx={{
+            color: "white",
+            px: 6,
+            bgcolor: "black",
+            "&:hover": {
+              bgcolor: "#f0f4f4",
+              color: "black",
+            },
           }}
-        />
+          href={"/Info"}
+          size={"large"}
+        >
+          {" "}
+          About Us
+        </Button>
       </Box>
       {/* </Box> */}
     </Container>

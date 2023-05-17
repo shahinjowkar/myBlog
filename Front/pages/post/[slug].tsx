@@ -60,16 +60,27 @@ export default function post({ post }: props) {
         )}
       </Box>
       <Container maxWidth={"xl"}>
-        <Box sx={{ bgcolor: layer2, mx: 3, mt: 3, px: 3, borderRadius: 5 }}>
+        <Box
+          borderLeft={1}
+          borderRight={1}
+          sx={{
+            bgcolor: "inherit",
+            mx: 3,
+            mt: 3,
+            px: 3,
+            borderColor: "black",
+            borderWidth: "3px",
+          }}
+        >
           <ThemeProvider theme={theme}>
-            <Typography color={"white"} variant="h4">
+            <Typography color={"black"} variant="h4">
               {post.title}
             </Typography>
-            <Typography color={"white"} variant="h5">
+            <Typography color={"black"} variant="h5">
               {post.description}
             </Typography>
 
-            <Typography color={"white"} variant="body2">
+            <Typography color={"black"} variant="body2">
               {post?.body && (
                 <PortableText
                   dataset={process.env.NEXT_PUBLIC_SANITY_DATASET}
@@ -95,7 +106,7 @@ export default function post({ post }: props) {
               )}
             </Typography>
             {post?.plainBody && (
-              <Typography color={"white"} variant="body2">
+              <Typography color={"black"} variant="body2">
                 {post.plainBody}
               </Typography>
             )}
