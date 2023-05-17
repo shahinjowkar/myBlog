@@ -5,11 +5,10 @@ import {
   createTheme,
   responsiveFontSizes,
 } from "@mui/material";
-import { Container, color } from "@mui/system";
-import { Fullscreen, TheatersOutlined } from "@mui/icons-material";
 import { sanityClient, urlFor } from "../../sanity";
 
 import CommentForm from "../../components/CommentForm";
+import { Container } from "@mui/system";
 import { Context } from "vm";
 import { GetStaticProps } from "next";
 import Header from "../../components/Header";
