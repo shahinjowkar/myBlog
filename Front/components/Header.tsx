@@ -80,7 +80,7 @@ function Header() {
         </Link>
         <IconButton
           sx={{ ml: "auto" }}
-          href="mailto:Soorena.barmaky@mail.utoronto.ca"
+          href="mailto:Soorena.barmaky@alum.utoronto.ca"
         >
           <EmailIcon color="action" fontSize="large" target="_blank" />
         </IconButton>
