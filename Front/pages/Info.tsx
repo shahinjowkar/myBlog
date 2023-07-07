@@ -27,8 +27,7 @@ export default function Info() {
               height: "65%",
               width: "80%",
               display: "flex",
-              border: 1,
-              borderBlockColor: "white",
+
               justifyContent: "flex-end",
               alignItems: "center",
             }}
@@ -37,7 +36,7 @@ export default function Info() {
               sx={{
                 display: "flex",
                 flexDirection: "column",
-                alignItems: "flex-end",
+                alignItems: "flex-start",
                 justifyContent: "center",
                 Width: "700px",
                 maxWidth: "700px",

@@ -63,6 +63,7 @@ export default function Home({ posts }: Props) {
                   sx={{
                     bgcolor: `${layer2}`,
                     height: "400px",
+                    overflow: "scroll",
                   }}
                 >
                   <CardActionArea>

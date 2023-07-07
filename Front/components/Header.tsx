@@ -68,7 +68,7 @@ function Header() {
               width: "75px",
 
               pl: "6%",
-
+              cursor: "pointer",
               // backgroundPositionY: "100px",
               backgroundImage: `url(${logo.src})`,
               backgroundSize: "cover",
