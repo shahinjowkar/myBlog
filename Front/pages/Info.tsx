@@ -68,19 +68,49 @@ export default function Info() {
                 fontSize={"1.125rem"}
                 fontFamily={"Abril Fatface"}
                 variant={"body2"}
-                textAlign={"justify"}
+                // textAlign={"justify"}
                 pt={2}
               >
-                {!readMore
-                  ? `I have a bachelor of science (BSc) degree from University of
-                Toronto, specializing in human biology. My passion in dentistry
-                started when I was a kid and stepped into a dental office for
-                the first time, because i found dentistry to be the perfect
-                synergy of art and science. I plan to become a dentist in the
-                future and provide access to oral health care to my community.`
-                  : `I have a bachelor of science (BSc) degree from University of Toronto, specializing in human biology. My passion in dentistry started when I was a kid and stepped into a dental office for the first time, because i found dentistry to be the perfect synergy of art and science. I plan to become a dentist in the future and provide access to oral health care to my community.
-
-Me and my team created this blog to spread Information about greatest and latest discoveries in the field of dentistry. using GPT-4 AI technology, we summarize research papers about state-of-the-art technologies and methods related to dentistry. All information on this blog is free to use and sources are listed in each post.`}
+                I have a bachelor of science (BSc) degree from University of
+                Toronto. My passion in dentistry started when I was a kid and
+                stepped into a dental office for the first time. However, during
+                my undergraduate program, my interest found a more logical form.
+                I was intrigued by the interactive nature of dentistry, and that
+                it constantly requires surgical operations which are hands-on
+                procedures and demand having close contact with patients.
+              </Typography>
+              <Typography
+                color={"white"}
+                fontSize={"1.125rem"}
+                fontFamily={"Abril Fatface"}
+                variant={"body2"}
+                // textAlign={"justify"}
+                pt={2}
+              >
+                With a help of a team of interdisciplinary students, I created
+                this scientific journal, which summarizes the latest and most
+                interesting articles and innovations in dentistry using
+                state-of-the-art A.I. system. All articles are hand-picked; and
+                all summaries are fact-checked, peer reviewed, and taylored
+                towards general audience with no background in dentistry. Source
+                of the original articles can be found at the buttom of each
+                page.
+              </Typography>
+              <Typography
+                color={"white"}
+                fontSize={"1.125rem"}
+                fontFamily={"Abril Fatface"}
+                variant={"body2"}
+                // textAlign={"justify"}
+                pt={2}
+              >
+                We also run a social media club on Instagram, @pre_denthusiasts,
+                throug which we introduce different dental schools and their
+                requirements, answer common DAT questions, and help pre-dental
+                students practice their interview skills. As a pre-dental
+                student myself, I am aware of the lack of guidance for students
+                interested in following dentistry, and our team hopes to close
+                this gap by providing valuable information in our page.
               </Typography>
               {/* <Button
                 variant={"text"}
